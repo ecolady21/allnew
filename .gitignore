@@ -1,1 +1,5 @@
-gitignore
+# .gitignore
+
+c/**/a.out
+c/**/hello
+c/**/*.o
