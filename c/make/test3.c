@@ -1,4 +1,4 @@
-#include <studio.h>
+#include <stdio.h>
 #include "b.h"
 #include "c.h"
 
