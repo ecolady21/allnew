@@ -1,10 +1,10 @@
 import java.util.*;
 
-Public class gugudan {
+public class gugudan {
 	public static void main (String[] args) {
-		scanner s = new Scanner(System.in);
+		Scanner s = new Scanner(System.in);
 		do {
-			Systems.out.print("Insert number(0:Exit) : ");
+			System.out.print("Insert number(0:Exit) : ");
 			int i = s.nextInt();
 
 			if(i == 0) {
