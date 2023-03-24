@@ -1,6 +1,6 @@
 #! /bin/bash
 
 cd /work
-tar cvzf allnew.tar.gz /work/allnew
+tar cvzf allnew.tar.gz /allnew
 mv allnew.tar.gz ~
 
