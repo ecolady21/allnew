@@ -12,8 +12,14 @@ c/**/test
 
 java/*.class
 
+##scala
+scala/**/target
+
+## maven
+maven/target
+
 ## node.js
 node/**/node_modules
 
-##hello.py
-from bottle import route, run
+## python
+python/**/.venv
