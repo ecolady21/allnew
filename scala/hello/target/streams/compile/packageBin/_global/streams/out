@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /allnew/scala/hello/target/scala-2.13/hello_2.13-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Hello$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /allnew/scala/hello/target/scala-2.13/classes/Hello$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /allnew/scala/hello/target/scala-2.13/classes/Hello.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
