@@ -11,3 +11,9 @@ c/**/test
 ## java
 
 java/*.class
+
+## node.js
+node/**/node_modules
+
+##hello.py
+from bottle import route, run
