@@ -1,5 +1,5 @@
-public class HellWorld {
-    public static void main(Staring args[]) {
+public class HelloWorld {
+    public static void main(String args[]) {
         System.out.println("Maven Hello World!!");
     }
 }
