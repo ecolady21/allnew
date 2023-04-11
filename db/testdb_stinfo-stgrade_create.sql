@@ -15,7 +15,7 @@ alter table st_info add constraint pk_stinfo primary key (ST_ID);
 alter table st_grade add constraint pk_stgrade primary key(ST_ID);
 
 explain st_info;
-explain st_grads;
+explain st_grade;
 
 insert into st_info	values (202301, "LeeGilDong", "Game");
 insert into st_info	values (202302, "KimGilDong", "Computer");
