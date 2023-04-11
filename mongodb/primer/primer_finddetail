@@ -1,0 +1,3 @@
+use test
+db.primer.find( { "address.zipcode": "11368" }, 
+{grades:{$elemMatch:{grade:"A"}}})

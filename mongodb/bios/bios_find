@@ -1,0 +1,2 @@
+use test
+sb.bios.find().pretty()
