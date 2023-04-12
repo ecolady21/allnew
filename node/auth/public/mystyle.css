@@ -1,0 +1,56 @@
+body {
+  background-color: mistyrose;
+}
+
+h3 {
+  color: purple;
+}
+
+hr {
+  border: 5px solid yellowgreen;
+}
+
+input {
+  color: blue;
+  font-size: 15px;
+}
+
+button {
+  color: blue;
+  font-size: 15px;
+}
+
+a {
+  font-family: monospace;
+  font-size: 18px;
+  color: #ff1493;
+}
+
+input[type="text"] {
+  background-color: lightblue;
+}
+
+input[type="password"] {
+  background-color: rgb(236, 186, 186);
+}
+
+div.box {
+  background: rgba(136, 136, 90, 0.109);
+  border-style: solid;
+  border-color: peru;
+  border-radius: 0px 35px 0px 35px;
+  border-image: url("border.png") 30 round;
+  width: 350;
+  height: 180;
+
+  margin: 100px;
+  border-width: 1px;
+  padding: 50px;
+}
+
+div.box-inner {
+  border-style: none;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+}

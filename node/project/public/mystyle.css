@@ -1,0 +1,27 @@
+body {
+    background-color: mistyrose;
+}
+
+h3 {
+    color: purple;
+}
+
+hr {
+    border: 5px soild yellowgreen;
+}
+
+input {
+    color: blue;
+    font-size: 15px;
+}
+
+button {
+    color: blue;
+    font-size: 15px;
+}
+
+a {
+    font-family: monospace;
+    font-size: 15px;
+    color: yellowgreen;
+}

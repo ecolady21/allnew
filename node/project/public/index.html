@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h3>User Authentication</h3>
+  <h3>회원가입</h3>
   <hr />
   <form action="/insert" target="targetURL" name="userForm" method="post">
     <p>Userid : <input type="text" size="15" name="userId" /></p>
@@ -18,7 +18,6 @@
     <p>mobile2 : <input type="text" size="15" name="mobile2" /></p>
     <p>height : <input type="text" size="15" name="height" /></p>
     <p>mdate : <input type="date" size="15" name="mdate" /></p>
-
     <input type="button" value="get select" onclick='document.targetURL.location.href="/select"' />&nbsp;&nbsp;
     <input type="button" value="get selectQuery"
       onclick='document.targetURL.location.href="/selectQuery?userId="+document.userForm.userId.value' />&nbsp;&nbsp;
