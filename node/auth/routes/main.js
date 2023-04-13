@@ -45,7 +45,22 @@ app.post('/register', (req, res) => {
     console.log(result);
     res.redirect('/');
 })
+app.post('/login', (req, res) => {
+    const { id, pw } = req.body;
+    const result = connection.query("select * from user where userid=? and passwd=?", [id, pw]);
+    // console.log(result);
+    if (result.length == 0) {
+        res.redirect('error.html')
+    }
+    if (id == 'admin' || id == 'root') {
+        console.log(id + " => Administrator Logined")
+        res.redirect('member.html')
+    } else {
+        console.log(id + " => User Logined")
+        res.redirect('main.html')
 
+    }
+})
 // request O, query X
 app.get('/select', (req, res) => {
     const result = connection.query('select * from user');

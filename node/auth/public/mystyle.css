@@ -1,5 +1,7 @@
 body {
-  background-color: mistyrose;
+  background-color: aquamarine;
+  background-size: cover;
+
 }
 
 h3 {
@@ -7,50 +9,89 @@ h3 {
 }
 
 hr {
-  border: 5px solid yellowgreen;
+  border-style: hidden;
 }
 
 input {
-  color: blue;
+  color: rgb(48, 47, 47);
   font-size: 15px;
+  border-radius: 40%;
 }
 
 button {
   color: blue;
+  text-align: justify;
   font-size: 15px;
 }
 
 a {
   font-family: monospace;
+  text-align: center;
   font-size: 18px;
   color: #ff1493;
 }
 
 input[type="text"] {
   background-color: lightblue;
+
+}
+
+input[type="submit"] {
+  border-radius: 50%;
 }
 
 input[type="password"] {
-  background-color: rgb(236, 186, 186);
+  background-color: lightblue;
+}
+
+input[type="reset"] {
+  border-radius: 50%;
 }
 
 div.box {
-  background: rgba(136, 136, 90, 0.109);
+  background-image: url('down.jpg');
   border-style: solid;
-  border-color: peru;
-  border-radius: 0px 35px 0px 35px;
-  border-image: url("border.png") 30 round;
-  width: 350;
-  height: 180;
+  border-color: skyblue;
+  border-radius: 20px;
+  width: 507px;
+  height: 516px;
 
   margin: 100px;
   border-width: 1px;
-  padding: 50px;
+  padding: 0px;
 }
 
 div.box-inner {
-  border-style: none;
+  border-style: inset;
   text-align: center;
   margin: 10px;
-  padding: 10px;
+  padding: 100px;
+}
+
+div.box2 {
+  border-style: hidden;
+  position: relative;
+  width: 150px;
+  height: 100px;
+  left: 40px;
+  top: 80px;
+
+}
+
+div.box3 {
+  border-style: hidden;
+  position: relative;
+  width: 150px;
+  height: 100px;
+  left: 200px;
+  bottom: 35px;
+}
+
+div.box4 {
+  border-style: hidden;
+  position: relative;
+  width: 150px;
+  height: 100px;
+  left: 90px;
+  bottom: 42px;
 }

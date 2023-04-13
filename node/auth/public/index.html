@@ -3,23 +3,99 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Login</title>
+  <title>니네 꼭 그렇게 다 가져야만 했냐?</title>
   <link type="text/css" rel="stylesheet" href="mystyle.css">
+</head>
+<style>
+  #menubar {
+    background: rgb(211, 211, 92);
+  }
+
+  #menubar ul {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+  }
+
+  #menubar ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0px 15px;
+  }
+
+  #menubar ul li a {
+    color: white;
+    text-decoration: none;
+  }
+
+  #menubar ul li a:hover {
+    color: violet;
+  }
+</style>
 </head>
 
 <body>
-  <h3>Login</h3>
+  <h3>니네 꼭 그렇게 다 가져야만 했냐?</h3>
   <hr />
+  <nav id="menubar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="member.html">About.me</a></li>
+      <li><a href="register.html">join</a></li>
+      <li><a href="#">logout</a></li>
+    </ul>
+  </nav>
+
   <form action="/login" name="userForm" method="post">
     <div class="box">
-      <p>Userid : <input type="text" size="15" name="id" /></p>
-      <p>Password : <input type="password" size="15" name="pw" /></p>
-    </div>
-    <input type="submit" value="로그인" />&nbsp;&nbsp;
-    <input type="reset" value="취소" /><br /><br />
+      <div class="box2">
+        <p>Userid :<input type="text" size="7" name="id" /></p>
+      </div>
+      <div class="box3">
+        <p>Password :<input type="password" size="7" name="pw" /></p>
+      </div>
+      <div class="box4">
+        <input type="submit" value="로그인" />&nbsp;<input type="reset" value="취소" /><br /><br />
+
+        </ul>
+      </div>
+      app.post('/register', (req, res) => {
+      const { id, pw } = req.body;
+      if (id == "") {
+      res.redirect('register.html')
+      } else {
+      let result = connection.query("select * from user where userid=?", [id]);
+      if (result.length > 0) {
+      res.writeHead(200);
+      var template = `
+      <!doctype html>
+      <html>
+
+      <head>
+        <title>Error</title>
+        <meta charset="utf-8">
+      </head>
+
+      <body>
+        <div>
+          <h3 style="margin-left: 30px">Registrer Failed</h3>
+          <h4 style="margin-left: 30px">이미 존재하는 아이디입니다.</h4>
+          <a href="register.html" style="margin-left: 30px">다시 시도하기</a>
+        </div>
+      </body>
+
+      </html>
+      `;
+      res.end(template);
+      } else {
+      result = connection.query("insert into user values (?, ?)", [id, pw]);
+      console.log(result);
+      res.redirect('/');
+      }
+      }
+      })
   </form>
-  </div>
-  <a href="register.html">회원가입</a>
+
 </body>
 
 </html>
