@@ -17,83 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-### register exception
-
-// login
-app.post('/login', (req, res) => {
-    const { id, pw } = req.body;
-    const result = connection.query("select * from user where userid=? and passwd=?", [id, pw]);
-    // console.log(result);
-    if (result.length == 0) {
-        res.redirect('error.html')
-    }
-    if (id == 'admin' || id == 'root') {
-        console.log(id + " => Administrator Logined")
-        res.redirect('member.html')
-    } else {
-        console.log(id + " => User Logined")
-        res.redirect('main.html')
-
-    }
-})
-
-// register
-app.post('/register', (req, res) => {
-    const { id, pw } = req.body;
-    if (id == "") {
-        res.redirect('register.html')
-    } else {
-        let result = connection.query("select * from user where userid=?", [id]);
-        if (result.length > 0) {
-            res.writeHead(200);
-            var template = `
-        <!doctype html>
-        <html>
-        <head>
-            <title>Error</title>
-            <meta charset="utf-8">
-        </head>
-        <body>
-            <div>
-                <h3 style="margin-left: 30px">Registrer Failed</h3>
-                <h4 style="margin-left: 30px">이미 존재하는 아이디입니다.</h4>
-                <a href="register.html" style="margin-left: 30px">다시 시도하기</a>
-            </div>
-        </body>
-        </html>
-        `;
-            res.end(template);
-        } else {
-            result = connection.query("insert into user values (?, ?)", [id, pw]);
-            console.log(result);
-            res.redirect('/');
-        }
-    }
-})
-
-
-
-## final main.js
-
-const express = require('express');
-const bodyParser = require('body-parser');
-const mysql = require('sync-mysql');
-const env = require('dotenv').config({ path: "../../.env" });
-
-var connection = new mysql({
-    host: process.env.host,
-    user: process.env.user,
-    password: process.env.password,
-    database: process.env.database
-});
-
-const app = express()
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 function template_nodata(res) {
     res.writeHead(200);
     var template = `
@@ -102,7 +25,6 @@ function template_nodata(res) {
     <head>
         <title>Result</title>
         <meta charset="utf-8">
-        <link type="text/css" rel="stylesheet" href="mystyle.css" />
     </head>
     <body>
         <h3>데이터가 존재하지 않습니다.</h3>
@@ -120,7 +42,6 @@ function template_result(result, res) {
     <head>
         <title>Result</title>
         <meta charset="utf-8">
-        <link type="text/css" rel="stylesheet" href="mystyle.css" />
     </head>
     <body>
     <table border="1" style="margin:auto;">
@@ -228,6 +149,7 @@ app.post('/select', (req, res) => {
 // request O, query O
 app.get('/selectQuery', (req, res) => {
     const id = req.query.id;
+    // console.log(req.query)
     if (id == "") {
         res.send('User-id를 입력하세요.')
     } else {
@@ -332,4 +254,3 @@ app.post('/delete', (req, res) => {
 })
 
 module.exports = app;
-
