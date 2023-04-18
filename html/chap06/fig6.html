@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>달력 만들기</title>
+	<style>
+		table {
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			border: 1px solid black;
+			padding: 10px;
+			text-align: center;
+		}
+
+		th {
+			background-color: lightgray;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>달력 예시</h1>
+	<div>
+		<label for="year">년도:</label>
+		<select id="year"></select>
+		<label for="month">월:</label>
+		<select id="month"></select>
+		<button id="generate-calendar">달력 생성</button>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+		</thead>
+		<tbody id="calendar-body">
+		</tbody>
+	</table>
+	<script>
+		// 년도 선택 옵션 생성
+		const yearSelect = document.getElementById("year");
+		const currentYear = new Date().getFullYear();
+		for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+			const option = document.createElement("option");
+			option.value = i;
+			option.textContent = i;
+			yearSelect.appendChild(option);
+		}
+
+		// 월 선택 옵션 생성
+		const monthSelect = document.getElementById("month");
+		const months = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+		for (let i = 0; i < months.length; i++) {
+			const option = document.createElement("option");
+			option.value = i + 1;
+			option.textContent = months[i];
+			monthSelect.appendChild(option);
+		}
+
+		// 달력 생성 버튼 클릭 시 이벤트 처리
+		const generateButton = document.getElementById("generate-calendar");
+		generateButton.addEventListener("click", generateCalendar);
+
+		// 달력 생성 함수
+		function generateCalendar() {
+			// 선택한 년도와 월 가져오기
+			const year = parseInt(yearSelect.value);
+			const month = parseInt(monthSelect.value);
+
+			// 이번 달의 첫째 날과 마지막 날 계산
+			const firstDay = new Date(year, month - 1, 1);
+			const last
